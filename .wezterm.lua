@@ -10,6 +10,9 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local is_macos = jit and jit.os == "OSX"
+print(is_macos)
+
 local config = {}
 -- Use config builder object if possible
 if wezterm.config_builder then
@@ -43,7 +46,11 @@ config.inactive_pane_hsb = {
 }
 
 -- Keys
-config.leader = { key = 'phys:Space', mods = 'CMD', timeout_milliseconds = 1000 }
+if is_macos then
+    config.leader = { key = 'phys:Space', mods = 'CMD', timeout_milliseconds = 1000 }
+else
+    config.leader = { key = 'phys:Space', mods = 'CTRL', timeout_milliseconds = 1000 }
+end
 config.keys = {
   -- Send C-a when pressing C-a twice
   { key = "a",          mods = "LEADER|CTRL", action = act.SendKey { key = "a", mods = "CTRL" } },
