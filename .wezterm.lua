@@ -19,13 +19,11 @@ end
 -- Settings
 -- config.default_prog = {'C:\\Users\\Sami\\.oh-my-zsh\\lib'}
 -- config.default_prog = {'C:\\cygwin64\\bin\\zsh.exe'}
-if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-  config.default_prog = {'wsl.exe', '-d', 'Ubuntu', '--', 'zsh'}
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--", "zsh" }
 else
   config.default_prog = { '/bin/zsh'}
 end
-
-  
 
 config.color_scheme = "Tokyo Night"
 --config.font = wezterm.font_with_fallback({
