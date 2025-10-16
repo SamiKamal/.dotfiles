@@ -10,9 +10,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local is_macos = jit and jit.os == "OSX"
-print(is_macos)
-
 local config = {}
 -- Use config builder object if possible
 if wezterm.config_builder then
@@ -45,8 +42,13 @@ config.inactive_pane_hsb = {
     brightness = 0.5,
 }
 
+
+local function is_macos()
+  return wezterm.target_triple:find("apple%-darwin") ~= nil
+end
+
 -- Keys
-if is_macos then
+if is_macos() then
     config.leader = { key = 'phys:Space', mods = 'CMD', timeout_milliseconds = 1000 }
 else
     config.leader = { key = 'phys:Space', mods = 'CTRL', timeout_milliseconds = 1000 }
