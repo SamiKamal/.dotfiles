@@ -29,10 +29,10 @@ else
 end
 
 config.color_scheme = "Tokyo Night"
---config.font = wezterm.font_with_fallback({
---	{ family = "Iosevka Nerd Font", scale = 1.24, weight = "Medium" },
---})
--- config.window_background_opacity = 0.9
+config.font = wezterm.font_with_fallback({
+	{ family = "Iosevka Nerd Font", scale = 1.24, weight = "Medium" },
+})
+ config.window_background_opacity = 0.9
 config.window_decorations = "RESIZE"
 config.scrollback_lines = 3000
 
